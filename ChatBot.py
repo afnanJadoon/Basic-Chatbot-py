@@ -1,8 +1,8 @@
+import os
 import google.generativeai as gemini
 from google.generativeai import GenerativeModel
 from langgraph.graph import StateGraph,END
 from pydantic import BaseModel
-import os
 
 gemini.configure(api_key = os.getenv("GEMINI_API_KEY"))
 
