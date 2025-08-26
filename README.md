@@ -1,6 +1,6 @@
 # Basic-Chatbot-py  
 A simple chatbot built with Google Gemini API, LangGraph, and Pydantic.<br>  
-It responds to user input in a conversational style but does not store conversation history.<br><br>  
+It responds to user input in a conversational style and also stores conversation history.<br><br>  
 
 # Gemini Chatbot with LangGraph<br>  
 This is a simple chatbot built with Google Gemini API, LangGraph, and Pydantic.<br>  
@@ -12,7 +12,7 @@ It takes user input, sends it to Gemini, and returns a response in a conversatio
 - Clean code structure with Pydantic models<br>  
 - Continuous chat loop until you type exit<br>  
 - Lightweight and beginner-friendly<br>  
-- Does not store memory (if you tell it your name and later ask "what is my name?", it won’t remember)<br><br>  
+- Stores memory (if you tell it your name and later ask "what is my name?", it will remember)<br><br> 
 
 # Requirements<br>  
 Make sure you have:<br>  
@@ -39,7 +39,7 @@ python chatbot.py<br><br>
 
 # Usage<br>  
 When you run the program, you’ll see:<br>  
-Chatbot is ready! Type 'exit' to quit.<br><br> 
+Chatbot is ready! Type 'exit', 'bye', 'goodbye' to quit.<br><br> 
 
 Type anything:<br>  
 You: Hello bot<br>  
@@ -50,5 +50,6 @@ You: exit<br>
 Bot: Allah Hafiz.<br><br>   
 
 # Ending Note<br>  
-This chatbot ends conversations with "Allah Hafiz". You can change it as you like.<br>  
-Currently, it does not store past memory. Every response is independent of previous inputs.<br>  
+This chatbot ends conversations with "Allah Hafiz". You can change it as you like.<br>
+Currently, it stores past memory so it can recall information you’ve shared during the chat.<br>
+  
