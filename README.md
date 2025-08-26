@@ -45,6 +45,12 @@ Type anything:<br>
 You: Hello bot<br>  
 Bot: Hi there! How can I help you today?<br><br>  
 
+Memory example:<br>
+You: My name is Afnan<br>
+Bot: Nice to meet you, Afnan!<br>
+You: What is my name?<br>
+Bot: Your name is Afnan.<br><br>
+
 To close the chatbot:<br>  
 You: exit<br>  
 Bot: Allah Hafiz.<br><br>   
