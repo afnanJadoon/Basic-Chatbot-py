@@ -12,8 +12,13 @@ class ChatBotState(BaseModel):
     user_input : str
     response : str
     
+chat_history = []
+    
 def chat_bot_node(state : ChatBotState):
-    reply = model.generate_content(state.user_input)
+    global chat_history
+    chat_history.append({"role" : "user", "parts" : [state.user_input]})
+    reply = model.generate_content(chat_history)
+    chat_history.append({"role" : "model", "parts" : [reply.text]})
     return ChatBotState(user_input = state.user_input, response = reply.text)
 
 graph = StateGraph(ChatBotState)
@@ -28,7 +33,7 @@ print("\nChatbot is ready! Type 'exit', 'bye', 'goodbye' to quit.\n")
 while True:
     user_input = input("You: ")
     if user_input.lower() in ["exit","bye","goodbye"]:
-        print("Allah Hafiz.\n")
+        print("Bot: Allah Hafiz.\n")
         break
     
     result = app.invoke(ChatBotState(user_input = user_input, response = ""))
