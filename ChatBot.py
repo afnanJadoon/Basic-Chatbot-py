@@ -12,13 +12,21 @@ class ChatBotState(BaseModel):
     user_input : str
     response : str
     
+system_instruction = """You are a helpful AI chatbot.
+Your job is to answer questions clearly, politely, and provide explanations when needed.
+Always stay on topic and concise in your answers.
+"""
+    
 chat_history = []
     
 def chat_bot_node(state : ChatBotState):
     global chat_history
-    chat_history.append({"role" : "user", "parts" : [state.user_input]})
+    
+    prompt_with_instruction = f"{system_instruction}\nUser: {state.user_input}"
+    chat_history.append({"role" : "user", "parts" : [prompt_with_instruction]})
     reply = model.generate_content(chat_history)
     chat_history.append({"role" : "model", "parts" : [reply.text]})
+    
     return ChatBotState(user_input = state.user_input, response = reply.text)
 
 graph = StateGraph(ChatBotState)
@@ -28,10 +36,11 @@ graph.add_edge("gemini",END)
 
 app = graph.compile()
 
-print("\nChatbot is ready! Type 'exit', 'bye', 'goodbye' to quit.\n")
+print("\nChatbot is ready! Type 'exit,bye,goodbye' to quit.\n")
 
 while True:
     user_input = input("You: ")
+    
     if user_input.lower() in ["exit","bye","goodbye"]:
         print("Bot: Allah Hafiz.\n")
         break
