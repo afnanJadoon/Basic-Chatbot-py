@@ -1,10 +1,10 @@
 # Basic-Chatbot-py  
 A simple chatbot built with Google Gemini API, LangGraph, and Pydantic.<br>  
-It responds to user input in a conversational style and also stores conversation history.<br><br>  
+It responds to user input in a conversational style, follows a fixed system instruction and also stores conversation history.<br><br>  
 
 # Gemini Chatbot with LangGraph<br>  
 This is a simple chatbot built with Google Gemini API, LangGraph, and Pydantic.<br>  
-It takes user input, sends it to Gemini, and returns a response in a conversational style.<br><br>  
+It takes user input, applies a system instruction for polite and concise answers, sends it to Gemini, and returns a response in a conversational style.<br><br>  
 
 # Features<br>  
 - Uses Gemini 1.5 Flash for fast replies<br>  
@@ -39,7 +39,7 @@ python chatbot.py<br><br>
 
 # Usage<br>  
 When you run the program, you’ll see:<br>  
-Chatbot is ready! Type 'exit', 'bye', 'goodbye' to quit.<br><br> 
+Chatbot is ready! Type 'exit,bye,goodbye' to quit.<br><br> 
 
 Type anything:<br>  
 You: Hello bot<br>  
@@ -55,7 +55,15 @@ To close the chatbot:<br>
 You: exit<br>  
 Bot: Allah Hafiz.<br><br>   
 
+# System Instruction<br>  
+By default, the chatbot uses this system instruction:<br>  
+You are a helpful AI chatbot.
+Your job is to answer questions clearly, politely, and provide explanations when needed.
+Always stay on topic and concise in your answers.<br><br>  
+
+You can **change this instruction** in the code to make the chatbot behave differently (e.g., more casual, more detailed, or role-specific).<br><br>  
+
 # Ending Note<br>  
 This chatbot ends conversations with "Allah Hafiz". You can change it as you like.<br>
-Currently, it stores past memory so it can recall information you’ve shared during the chat.<br>
+It stores past memory and follows a fixed system instruction to ensure polite and concise answers.<br>
   
